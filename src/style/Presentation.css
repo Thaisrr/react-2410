@@ -1,0 +1,7 @@
+#Presentation h2 {
+    color: salmon;
+}
+
+#Presentation .img-container {
+    background-image: url("../assets/bg.png");
+}
