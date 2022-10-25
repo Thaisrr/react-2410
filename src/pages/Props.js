@@ -1,4 +1,5 @@
-import {Child0, Child1, Child2, Child3, Child4} from "../components/Children";
+import {Child0, Child1, Child2, Child3, Child4, Child5} from "../components/Children";
+import {func} from "prop-types";
 
 const Props = () => {
     const product1 = {id: 1, title: 'Souris sans fil'};
@@ -11,6 +12,26 @@ const Props = () => {
 
     const Products = () => {
         return products.map(p => <Child3 product={p} key={p.id}/>)
+    }
+
+    const doSomething = () => {
+        console.log('Hello World !', products)
+    }
+
+    const handleClick = (e) => {
+        exemple('Ma valeur')
+    }
+
+    const exemple = (value) => {
+        console.log('Coucou !', value)
+    }
+
+
+    const deleteProduct = (id ) => {
+        console.log('Pkfldfdls', id)
+        const index = products.findIndex(el => el.id === id);
+        products.splice(index, 1);
+        console.log(products);
     }
 
     return (
@@ -60,7 +81,31 @@ const Props = () => {
                     <Child4 title='Frankenstein' author='Mary Shelley'/>
                     <Child4 title='Pc Portable' author='2345€'/>
                     <Child4 title='Pomme de Terre' dispo={true}/>
+                    <Child4  dispo='coucou' price='test'/>
                 </section>
+
+
+                <section>
+                    <h2>React et les événements</h2>
+
+                    <p>
+                        <button onClick={handleClick} >Dire bonjour</button>
+                        <button onClick={(e) => exemple(e, 'Ma propriété')} >Dire encore bonjour</button>
+                        <button onClick={function() { exemple("Encore une propriété")}} >Dire encore bonjour</button>
+                    </p>
+
+
+                </section>
+
+                <section>
+                    <h2>Les fonctions</h2>
+
+                    {
+                        products.map(p => <Child5 key={p.id} deleteFunc={deleteProduct} product={p} action={doSomething} /> )
+                    }
+
+                </section>
+
 
             </main>
 

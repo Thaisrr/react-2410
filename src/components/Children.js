@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Child0 = () => (
     <div>
         <hr/>
@@ -42,7 +44,7 @@ export const Child3 = (props) => {
     )
 }
 
-export const Child4 = ({title, author='Inconnu', dispo=false}) => {
+export const Child4 = ({title, author='Inconnu', dispo=false, price=0}) => {
     // Pour passer des valeurs par défaut, il faut décomposer l'objet props
     return (
         <div>
@@ -55,3 +57,22 @@ export const Child4 = ({title, author='Inconnu', dispo=false}) => {
         </div>
     )
 }
+
+Child4.propTypes = {
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string,
+    dispo: PropTypes.bool,
+    price: PropTypes.number
+}
+
+export const Child5 = ({product, action, deleteFunc}) => (
+    <div>
+        <hr/>
+        <h3>Child 5</h3>
+        <p>{product.title}</p>
+        <p>
+            <button onClick={action}>Ne Cliquez pas ici!</button>
+            <button onClick={() => deleteFunc(product.id)}>Supprimer</button>
+        </p>
+    </div>
+);
