@@ -37,7 +37,7 @@ const Logique = () => {
     const getLi = (arr) => {
         const arr_li = [];
         for(let el of arr) {
-            arr_li.push(<li>{el}</li>)
+            arr_li.push(<li key={el}>{el}</li>)
         }
       // ou  arr.forEach(el => {})
         return arr_li;
@@ -50,6 +50,7 @@ const Logique = () => {
             <p>Dans les JSX, on peut interpoler du Javascript avec les accolades.</p>
             <p>On peut interpoler n'importe quel expression JS, à partir du moment où elle nous retourne une valeur.</p>
             <p>Attention, on ne peut pas utiliser le mot clef "return" dans le JSX.</p>
+            <p>La clef ne doit pas être l'index de l'élément dans le tableau.</p>
 
             <p>Exemple d'expression simple : </p>
             {jsx}
@@ -114,6 +115,10 @@ const Logique = () => {
             <h2>Les Listes</h2>
 
             <p>Pour afficher des listes, on va afficher un tableau de JSX.</p>
+            <p>Chaque éléments du tableau de JSX doit avoir une propriété <i>key</i> unique.</p>
+            <p>ça permet à React de lier les données du tableau initial, avec l'affichage, et éviter les bugs
+            notamment lors de modifications dans le tableau.
+            </p>
             <ul>{li_jsx}</ul>
 
             <h3>Via fonction</h3>
@@ -123,7 +128,7 @@ const Logique = () => {
 
             <h3>Le map</h3>
             <ul>
-                { all_roles.map(r => <li>{r}</li>) }
+                { all_roles.map(r => <li key={r}>{r}</li>) }
             </ul>
         </>
     )

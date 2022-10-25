@@ -4,21 +4,23 @@ import Presentation from './pages/Presentation';
 import Logique from "./pages/Logique";
 import Navigation from "./components/Navigation";
 import NotFound from "./pages/NotFound";
+import Props from "./pages/Props";
 
 function App() {
   return (
     <div className="App">
-        <BrowserRouter>
+        <BrowserRouter> {/* Pour indiquer à react d'utiliser le router */}
             <Navigation/>
 
-            <Routes>
-                <Route path="/" element={<Presentation/>} />
+            <Routes> {/* a mettre à l'endroit où on souhaite que le router injecte les composants */}
+                <Route path="/" element={<Presentation/>} /> {/* Pour déclarer le chemin des composants pages */}
                 <Route path='/logique-composant' element={<Logique/>} />
                 <Route path='/hello' element={
                     <>
                         <h1>Hello World !</h1>
                     </>
                 }/>
+                <Route path='/props' element={<Props/>} />
                 <Route path='404' element={<NotFound/>} />
                 <Route path='*' element={<NotFound/>} />
                 {/*<Route path='*' element={ <Redirect to='/404'/> } />*/}
