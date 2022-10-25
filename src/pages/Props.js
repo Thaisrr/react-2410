@@ -1,5 +1,4 @@
 import {Child0, Child1, Child2, Child3, Child4, Child5} from "../components/Children";
-import {func} from "prop-types";
 
 const Props = () => {
     const product1 = {id: 1, title: 'Souris sans fil'};

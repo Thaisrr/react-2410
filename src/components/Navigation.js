@@ -5,7 +5,8 @@ const Navigation = () => {
     const links = [
         {path: '/', name: 'Présentation'},
         {path: '/logique-composant', name: 'Logique' },
-        {path: '/props', name: 'Props'}
+        {path: '/props', name: 'Props'},
+        {path: '/states', name: 'States'}
     ]
 
     return (

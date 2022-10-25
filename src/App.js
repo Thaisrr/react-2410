@@ -5,6 +5,7 @@ import Logique from "./pages/Logique";
 import Navigation from "./components/Navigation";
 import NotFound from "./pages/NotFound";
 import Props from "./pages/Props";
+import States from "./pages/States";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                     </>
                 }/>
                 <Route path='/props' element={<Props/>} />
+                <Route path='/states' element={<States/>} />
                 <Route path='404' element={<NotFound/>} />
                 <Route path='*' element={<NotFound/>} />
                 {/*<Route path='*' element={ <Redirect to='/404'/> } />*/}
