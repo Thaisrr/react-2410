@@ -12,3 +12,22 @@ input.errors {
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
+
+.card {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(128, 128, 128, 0.27);
+}
+
+button {
+    background: #83ffd8;
+    padding: 10px 5px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn-container {
+    display: flex;
+    gap: 10px;
+}
