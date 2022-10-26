@@ -6,7 +6,8 @@ const Navigation = () => {
         {path: '/', name: 'Présentation'},
         {path: '/logique-composant', name: 'Logique' },
         {path: '/props', name: 'Props'},
-        {path: '/states', name: 'States'}
+        {path: '/states', name: 'States'},
+        {path: '/forms', name: 'Formulaires'}
     ]
 
     return (

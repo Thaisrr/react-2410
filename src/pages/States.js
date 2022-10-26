@@ -13,6 +13,8 @@ const States = function () {
 
     const [book, setBook] = useState({title: 'Frankenstein', author: 'Mary Shelley'});
 
+    const [fruits, setFruits] = useState(['Abricot', 'Poires', 'Mangue']);
+
 
     const increment = function () {
         counter++;
@@ -38,6 +40,13 @@ const States = function () {
         setBook({...book, title});
     }
 
+    const addFruit = (new_fruit) => {
+        const copy = [...fruits]; //
+        //const copy = Array.from(fruits);
+        copy.push(new_fruit);
+        setFruits(copy);
+        // setFruits([...fruits, new_fruit]);
+    }
 
     const NotLoggedBlock = () => (
         <>
@@ -56,7 +65,6 @@ const States = function () {
             </p>
         </>
     )
-
 
     return (
         <main>
@@ -110,11 +118,24 @@ const States = function () {
 
                 <hr/>
 
+                <h3>Objet</h3>
                 <p>{book.title}, de {book.author}</p>
                 <p>
                     <button onClick={updateBook}>Update</button>
                 </p>
+
+                <h3>Les tableaux</h3>
+
+                <p>
+                    <button onClick={() => addFruit('Orange')}>Orange</button>
+                    <button onClick={() => addFruit('Poire')}>Poire</button>
+                </p>
+
+                <ul>
+                    {fruits.map(f => <li key={f}>{f}</li> )}
+                </ul>
             </section>
+
         </main>
     )
 }
