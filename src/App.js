@@ -7,6 +7,8 @@ import NotFound from "./pages/NotFound";
 import Props from "./pages/Props";
 import States from "./pages/States";
 import Formulaires from "./pages/Formulaires";
+import ClasseComponent from "./pages/ClasseComponent";
+import HookEffet from "./pages/HookEffet";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
                 <Route path='/props' element={<Props/>} />
                 <Route path='/states' element={<States/>} />
                 <Route path='/forms' element={<Formulaires/>} />
+                <Route path="/class" element={<ClasseComponent/>} />
+                <Route path='/effect' element={<HookEffet/>} />
                 <Route path='404' element={<NotFound/>} />
                 <Route path='*' element={<NotFound/>} />
                 {/*<Route path='*' element={ <Redirect to='/404'/> } />*/}

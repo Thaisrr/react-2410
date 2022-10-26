@@ -7,7 +7,9 @@ const Navigation = () => {
         {path: '/logique-composant', name: 'Logique' },
         {path: '/props', name: 'Props'},
         {path: '/states', name: 'States'},
-        {path: '/forms', name: 'Formulaires'}
+        {path: '/forms', name: 'Formulaires'},
+        {path: '/class', name: 'Classe'},
+        {path: '/effect', name: 'UseEffect'}
     ]
 
     return (

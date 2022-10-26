@@ -21,10 +21,11 @@ const Formulaires = () => {
 
 
     /*** React Hook Form **************/
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, reset, formState : {errors}} = useForm();
 
-    const save = (e) => {
-        console.log(e);
+    const save = (user) => {
+        console.log(user);
+        reset();
     }
 
     return (
@@ -59,11 +60,17 @@ const Formulaires = () => {
             <form onSubmit={handleSubmit(save)}>
                 <div>
                     <label htmlFor='username'>Username</label>
-                    <input id='username' {...register('username')}/>
+                    <input id='username' className={errors.username? 'error' : null}  {...register('username', {required: true, minLength: 8})}/>
+                    {errors.username?.type === 'required' && <p className='error'>Username must be provided</p>}
+                    {errors.username?.type === 'minLength' && <p className='error'>Username doit avoir au moins 8 caractères</p>}
                 </div>
                 <div>
                     <label htmlFor='email'>Email</label>
-                    <input id='email' {...register('email')}/>
+                    <input id='email'  className={errors.username? 'error' : null} {...register('email', {
+                        required: "L'email est obligatoire",
+                        pattern: {value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/, message: "Le format de l'email n'est pas valide" }
+                    })}/>
+                    <p>{errors?.email?.message}</p>
                 </div>
                 <div>
                     <label htmlFor='titre'>Titre</label>
@@ -83,8 +90,6 @@ const Formulaires = () => {
                         <input id='b' type='checkbox' value='b' {...register('choice')}/>
                     </div>
                 </fieldset>
-
-
                 <p>
                     <button>Enregistrer</button>
                 </p>
