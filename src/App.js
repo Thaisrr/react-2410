@@ -9,6 +9,7 @@ import States from "./pages/States";
 import Formulaires from "./pages/Formulaires";
 import ClasseComponent from "./pages/ClasseComponent";
 import HookEffet from "./pages/HookEffet";
+import Requetes from "./pages/Requetes";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
                 <Route path='/forms' element={<Formulaires/>} />
                 <Route path="/class" element={<ClasseComponent/>} />
                 <Route path='/effect' element={<HookEffet/>} />
+                <Route path='/requests' element={<Requetes/>} />
                 <Route path='404' element={<NotFound/>} />
                 <Route path='*' element={<NotFound/>} />
                 {/*<Route path='*' element={ <Redirect to='/404'/> } />*/}

@@ -9,7 +9,8 @@ const Navigation = () => {
         {path: '/states', name: 'States'},
         {path: '/forms', name: 'Formulaires'},
         {path: '/class', name: 'Classe'},
-        {path: '/effect', name: 'UseEffect'}
+        {path: '/effect', name: 'UseEffect'},
+        {path: '/requests', name: 'Requêtes'}
     ]
 
     return (
@@ -18,7 +19,7 @@ const Navigation = () => {
             <ul>
                 {links.map(link => (
                     <li>
-                        <NavLink to={link.path} end={link.path === '/'}>{link.name}</NavLink>
+                        <NavLink to={link.path} end={link.path === '/'} key={link.path}>{link.name}</NavLink>
                     </li>
                 ))}
             </ul>

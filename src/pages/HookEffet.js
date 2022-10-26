@@ -39,8 +39,7 @@ const HookEffet = () => {
         let interval = setInterval(() => console.log('Interval ', count++), 1000) // mount
         return () => clearInterval(interval); // unmount
     }, []);
-
-
+    
 
     return (
         <main>
