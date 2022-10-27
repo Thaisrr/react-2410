@@ -25,7 +25,6 @@ const Parametres = () => {
             </div>
     )
 
-
     return (
         <main>
             <h1>Requêtes avancées</h1>
@@ -34,6 +33,10 @@ const Parametres = () => {
             </div>
 
             <h2>Ci-dessous : les routes imbriquées : </h2>
+            <p>
+                <NavLink to={'search'}>Recherche</NavLink>
+            </p>
+
             <Outlet/>
 
             <p><small>----- fin de le route imbriquée ------</small></p>
