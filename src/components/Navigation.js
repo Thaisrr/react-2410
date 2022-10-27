@@ -11,7 +11,8 @@ const Navigation = () => {
         {path: '/class', name: 'Classe'},
         {path: '/effect', name: 'UseEffect'},
         {path: '/requests', name: 'Requêtes'},
-        {path: '/starwars', name: 'StarWars'}
+        {path: '/starwars', name: 'StarWars'},
+        {path: '/params', name: 'Paramétres'}
     ]
 
     return (

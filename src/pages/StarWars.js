@@ -8,7 +8,7 @@ const StarWars = () => {
     useEffect(() => {
         const loadChar = async () => setCharacters(await getCharacters());
         loadChar();
-    }, [])
+    }, []);
 
     const CharactersGrid = () => (
         <div className='grid'>
