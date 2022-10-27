@@ -1,5 +1,5 @@
 import './style/App.css';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Presentation from './pages/Presentation';
 import Logique from "./pages/Logique";
 import Navigation from "./components/Navigation";
@@ -15,11 +15,18 @@ import React from "react";
 import {Suspense} from "react";
 import SearchBooks from "./pages/SearchBooks";
 import Login from "./pages/Login";
+import {is_logged} from "./utils/service/AuthService";
+import Secret from "./pages/Secret";
 const Parametres = React.lazy(() => import("./pages/Parametres"));
 const BookDetails = React.lazy(() => import( "./pages/BookDetails"));
 
 
 function App() {
+    const ProtectedRoute = ({children}) => {
+        if(is_logged()) return children;
+        return <Navigate to='/login' replace/>
+    }
+
   return (
     <div className="App">
         <BrowserRouter> {/* Pour indiquer à react d'utiliser le router */}
@@ -45,6 +52,11 @@ function App() {
                     <Route path='search' element={<SearchBooks/>} />
                 </Route>
                 <Route path='/login' element={<Login/>} />
+                <Route path='/secret' element={
+                    <ProtectedRoute>
+                        <Secret/>
+                    </ProtectedRoute>}
+                />
                 <Route path='404' element={<NotFound/>} />
                 <Route path='*' element={<NotFound/>} />
                 {/*<Route path='*' element={ <Redirect to='/404'/> } />*/}

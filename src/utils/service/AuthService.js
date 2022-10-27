@@ -29,6 +29,7 @@ export const is_logged = () => {
 }
 
 export const logout = () => {
+    console.log('déconnecté⋅e');
     localStorage.removeItem('token');
     sessionStorage.removeItem('token');
 }
