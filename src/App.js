@@ -14,6 +14,7 @@ import StarWars from "./pages/StarWars";
 import React from "react";
 import {Suspense} from "react";
 import SearchBooks from "./pages/SearchBooks";
+import Login from "./pages/Login";
 const Parametres = React.lazy(() => import("./pages/Parametres"));
 const BookDetails = React.lazy(() => import( "./pages/BookDetails"));
 
@@ -43,6 +44,7 @@ function App() {
                     <Route path='book/:id' element={<BookDetails/> }/>
                     <Route path='search' element={<SearchBooks/>} />
                 </Route>
+                <Route path='/login' element={<Login/>} />
                 <Route path='404' element={<NotFound/>} />
                 <Route path='*' element={<NotFound/>} />
                 {/*<Route path='*' element={ <Redirect to='/404'/> } />*/}
