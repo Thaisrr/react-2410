@@ -21,6 +21,8 @@ const Login = () => {
         if(state === 'login') {
             try {
                 await login(user, stay_logged);
+                console.log('Vous êtes connecté⋅e !');
+                navigate('/secret');
             } catch {
                 alert('Mauvais identifiants')
             }
@@ -28,12 +30,13 @@ const Login = () => {
         else {
             try {
                 await user_register(user, stay_logged);
+                console.log('Vous êtes connecté⋅e !');
+                navigate('/secret');
             } catch {
                 alert(`Impossible de vous inscrire, veuillez vérifier vos données`)
             }
         }
-        console.log('Vous êtes connecté⋅e !');
-        navigate('/secret');
+
     }
 
 
