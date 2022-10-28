@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form";
 import {login, logout, register as user_register} from "../utils/service/AuthService";
 import {useNavigate} from "react-router-dom";
 
-const Login = () => {
+const Login = ({setLog}) => {
 
     // Attention, ceci est de la triche
     const [state, setState] = useState('login');
@@ -22,6 +22,7 @@ const Login = () => {
             try {
                 await login(user, stay_logged);
                 console.log('Vous êtes connecté⋅e !');
+                setLog(true);
                 navigate('/secret');
             } catch {
                 alert('Mauvais identifiants')
@@ -30,7 +31,8 @@ const Login = () => {
         else {
             try {
                 await user_register(user, stay_logged);
-                console.log('Vous êtes connecté⋅e !');
+                console.log('Vous êtes connecté⋅e !')
+                setLog(true)
                 navigate('/secret');
             } catch {
                 alert(`Impossible de vous inscrire, veuillez vérifier vos données`)

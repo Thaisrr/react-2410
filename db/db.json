@@ -36,6 +36,11 @@
       "email": "titi@mail.fr",
       "password": "$2a$10$a186yRPggBfeLCllZh1NPuvtOII3Ozx1No6GLUedDtrtGiKlqv9mG",
       "id": 2
+    },
+    {
+      "email": "abc@mail.fr",
+      "password": "$2a$10$qc./HHxlWhQ6Oe7edQOX4e30ELVvAMI6POiiSmH9ONqlGj0.iK8OK",
+      "id": 3
     }
   ],
   "secret": {

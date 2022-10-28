@@ -1,14 +1,11 @@
 import {useEffect, useState} from "react";
-import logique from "./Logique";
 
 const HookEffet = () => {
     const [counter, setCounter] = useState(0);
     const [book, setBook] = useState([]);
 
 
-    const loadBooks = () => {
-        setBook(['Livre 1', 'Livre 2']);
-    }
+
 
 
     // s'effectue au montage du composant, puis à chaque mise à jour

@@ -11,17 +11,19 @@ import ClasseComponent from "./pages/ClasseComponent";
 import HookEffet from "./pages/HookEffet";
 import Requetes from "./pages/Requetes";
 import StarWars from "./pages/StarWars";
-import React from "react";
+import React, {useState} from "react";
 import {Suspense} from "react";
 import SearchBooks from "./pages/SearchBooks";
 import Login from "./pages/Login";
 import {is_logged} from "./utils/service/AuthService";
 import Secret from "./pages/Secret";
+import Redux from "./pages/Redux";
 const Parametres = React.lazy(() => import("./pages/Parametres"));
 const BookDetails = React.lazy(() => import( "./pages/BookDetails"));
 
 
 function App() {
+    const [isLogged, setLogged] = useState(is_logged())
     const ProtectedRoute = ({children}) => {
         if(is_logged()) return children;
         return <Navigate to='/login' replace/>
@@ -30,7 +32,7 @@ function App() {
   return (
     <div className="App">
         <BrowserRouter> {/* Pour indiquer à react d'utiliser le router */}
-            <Navigation/>
+            <Navigation status={isLogged}/>
             <Suspense fallback={<div>Chargement de la page...</div>}>
             <Routes> {/* a mettre à l'endroit où on souhaite que le router injecte les composants */}
                 <Route path="/" element={<Presentation/>} /> {/* Pour déclarer le chemin des composants pages */}
@@ -51,7 +53,8 @@ function App() {
                     <Route path='book/:id' element={<BookDetails/> }/>
                     <Route path='search' element={<SearchBooks/>} />
                 </Route>
-                <Route path='/login' element={<Login/>} />
+                <Route path='/login' element={<Login setLog={setLogged}/>} />
+                <Route path='/redux' element={<Redux/>} />
                 <Route path='/secret' element={
                     <ProtectedRoute>
                         <Secret/>

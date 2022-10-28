@@ -1,7 +1,10 @@
 import {NavLink} from "react-router-dom";
 import '../style/Navigation.css';
+import {useSelector} from "react-redux";
 
-const Navigation = () => {
+const Navigation = ({status}) => {
+    const counter = useSelector(store => store?.counter.value);
+
     const links = [
         {path: '/', name: 'Présentation'},
         {path: '/logique-composant', name: 'Logique' },
@@ -13,7 +16,8 @@ const Navigation = () => {
         {path: '/requests', name: 'Requêtes'},
         {path: '/starwars', name: 'StarWars'},
         {path: '/params', name: 'Paramétres'},
-        {path: '/login', name: 'Login'}
+        {path: '/login', name: 'Login'},
+        {path: '/redux', name: 'Redux'}
     ]
 
     return (
@@ -25,6 +29,7 @@ const Navigation = () => {
                         <NavLink to={link.path} end={link.path === '/'}>{link.name}</NavLink>
                     </li>
                 ))}
+               <li>{status? 'Connecté⋅e' : 'Anonyme'}  | {counter}</li>
             </ul>
         </nav>
     )
