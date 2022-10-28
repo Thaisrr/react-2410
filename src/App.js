@@ -11,19 +11,26 @@ import ClasseComponent from "./pages/ClasseComponent";
 import HookEffet from "./pages/HookEffet";
 import Requetes from "./pages/Requetes";
 import StarWars from "./pages/StarWars";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Suspense} from "react";
 import SearchBooks from "./pages/SearchBooks";
 import Login from "./pages/Login";
 import {is_logged} from "./utils/service/AuthService";
 import Secret from "./pages/Secret";
 import Redux from "./pages/Redux";
+import {useDispatch} from "react-redux";
+import {fetchCounter} from "./store/counter";
 const Parametres = React.lazy(() => import("./pages/Parametres"));
 const BookDetails = React.lazy(() => import( "./pages/BookDetails"));
 
 
 function App() {
-    const [isLogged, setLogged] = useState(is_logged())
+    const [isLogged, setLogged] = useState(is_logged());
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCounter());
+    }, []);
     const ProtectedRoute = ({children}) => {
         if(is_logged()) return children;
         return <Navigate to='/login' replace/>

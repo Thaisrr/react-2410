@@ -10,18 +10,29 @@ export const counter_slice = createSlice({
         increment: state => {
             state.value++;
             state.modifications++;
+            localStorage.setItem('counter', JSON.stringify({value: state.value, modification: state.modifications}));
         },
         decrement: state => {
             state.value--;
             state.modifications++;
+            localStorage.setItem('counter', JSON.stringify({value: state.value, modification: state.modifications}));
         },
         incrementByAmount: (state, action) => {
             state.value += action.payload;
             state.modifications++;
+            localStorage.setItem('counter', JSON.stringify({value: state.value, modification: state.modifications}));
+        },
+        fetchCounter : (state) => {
+            const persisted_value = localStorage.getItem('counter');
+            if(persisted_value) {
+                const {value, modifications} = JSON.parse(persisted_value);
+                state.value = value;
+                state.modifications = modifications;
+            }
         }
     }
 })
 
 //export const increment = counter_slice.actions.increment;
-export const {increment, decrement, incrementByAmount} = counter_slice.actions;
+export const {increment, decrement, incrementByAmount, fetchCounter} = counter_slice.actions;
 export default counter_slice.reducer;
